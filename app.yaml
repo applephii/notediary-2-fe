@@ -1,5 +1,5 @@
 runtime: nodejs20
-service: fe
+service: notediary-2-fe
 
 handlers:
   - url: /static
