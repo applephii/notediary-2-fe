@@ -1,1 +1,1 @@
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'https://notediary-2-be-1013759214686.us-central1.run.app';
