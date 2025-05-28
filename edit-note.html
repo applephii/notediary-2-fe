@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notediary</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <center>
+        <h1 style="font-style: italic;">Notediary</h1>
+        <h3 style="font-style: italic; margin-top: 10px;">Edit Note</h3>
+
+        <div class="container">
+            <form id="editNoteForm">
+                <label for="inputAuthor">Author</label>
+                <input type="text" id="inputAuthor" required>
+
+                <label for="inputTitle">Title of Note</label>
+                <input type="text" id="inputTitle" required>
+
+                <label for="inputNotes">Note</label>
+                <textarea id="inputNotes" required></textarea>
+
+                <button type="submit">Save Note</button>
+                <button class="backBtn" type="button" id="backButton">Back</button>
+            </form>
+
+        </div>
+    </center>
+
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

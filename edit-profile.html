@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notediary</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <center>
+        <h1 style="font-style: italic;">Welcome to Notediary</h1>
+        <h3 style="font-style: italic; margin-top: 10px;">Register New Account</h3>
+
+        <div class="container">
+            <form id="editProfileForm">
+                <label for="inputEmail">Email</label>
+                <input type="email" id="inputEmail" required>
+
+                <label for="inputUsername">Username</label>
+                <input type="text" id="inputUsername" required>
+
+                <label for="inputPassword">Password (Write a new one if you want to change it)</label>
+                <input type="password" id="inputPassword">
+
+                <button type="submit">Save Update Profile</button>
+                <button class="backBtn" type="button" id="backButton">Back</button>
+            </form>
+        </div>
+    </center>
+
+    <script type="module" src="account.js"></script>
+    <script>
+        document.getElementById('backButton').addEventListener('click', function () {
+            window.history.back();
+        });
+    </script>
+</body>
+
+</html>

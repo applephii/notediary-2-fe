@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notediary</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <center>
+        <h1 style="font-style: italic;">Notediary</h1>
+
+        <h3 id="HeadingFor" style="font-style: italic; margin-top: 10px;">Past Notes</h3>
+        <div class="container">
+            <table id="notesTable">
+                <thead>
+                    <tr>
+                        <th>Author</th>
+                        <th>Title</th>
+                        <th>Note</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <button class="backBtn" type="button" id="backButton">Back</button>
+        </div>
+    </center>
+    
+    <script>
+        const HeadingFor = document.getElementById('HeadingFor');
+        HeadingFor.textContent = `${sessionStorage.getItem('username')}'s Past Notes`;
+    </script>
+    
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="script.js"></script>
+    
+</body>
+
+</html>

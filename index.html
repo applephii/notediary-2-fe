@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notediary</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+        .top-left {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 20%;
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+
+    <script type="module" src="auth.js"></script>
+</head>
+
+<body>
+    <div class="top-left">
+        <button id="loginButton">Login</button>
+        <button id="registerButton">Register</button>
+        <button id="logoutButton" style="display: none;">Logout</button>
+    </div>
+    <br><br><br>
+    <center>
+        <h1 id="MainHeading" style="font-style: italic;">Notediary</h1>
+
+        <div class="container">
+            <button id="newNoteButton">New Note</button>
+            <button id="pastNoteButton" style="margin-top: 20px;">Past Note</button>
+            <button id="profileButton" style="display: none; margin-top: 20px;">Edit Profile</button>
+            <button id="delProfileButton" style="display: none; margin-top: 20px;">Delete Profile</button>
+        </div>
+    </center>
+ 
+    <script type="module">
+        import { BASE_URL } from './config.js';
+        import { refreshAccessTokenIfNeeded } from './auth.js';
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            const hasToken = sessionStorage.getItem('accessToken');
+            const isValid = hasToken ? await refreshAccessTokenIfNeeded() : false;
+
+            const loginBtn = document.getElementById('loginButton');
+            const registerBtn = document.getElementById('registerButton');
+            const logoutBtn = document.getElementById('logoutButton');
+            const profileBtn = document.getElementById('profileButton');
+            const delProfileBtn = document.getElementById('delProfileButton');
+
+            const newNoteBtn = document.getElementById('newNoteButton');
+            const pastNoteBtn = document.getElementById('pastNoteButton');
+
+            const MainHeading = document.getElementById('MainHeading');
+
+            //toggle button login/register/logout
+            if (isValid) {
+                loginBtn.style.display = 'none';
+                registerBtn.style.display = 'none';
+                logoutBtn.style.display = 'inline-block';
+                profileBtn.style.display = 'inline-block';
+                delProfileBtn.style.display = 'inline-block';
+
+                MainHeading.textContent = `${sessionStorage.getItem('username')}'s Notediary`;
+            } else {
+                loginBtn.style.display = 'inline-block';
+                registerBtn.style.display = 'inline-block';
+                logoutBtn.style.display = 'none';
+                profileBtn.style.display = 'none';
+                delProfileBtn.style.display = 'none';
+            }
+
+            loginBtn.onclick = () => window.location.href = 'login.html';
+            registerBtn.onclick = () => window.location.href = 'register.html';
+
+            logoutBtn.onclick = async () => {
+                try {
+                    await axios.post(`${BASE_URL}/logout`, null, { withCredentials: true });
+
+                    sessionStorage.clear();
+
+                    alert('Logged out successfully');
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    console.error('Logout failed:', error);
+                    alert('Logout failed. Please try again.');
+                }
+            };
+
+            newNoteBtn.onclick = () => {
+                if (!isValid) {
+                    alert('Please login to create a new note.');
+                    window.location.href = 'login.html';
+                    return;
+                }
+                window.location.href = 'add-note.html';
+            };
+
+            pastNoteBtn.onclick = () => {
+                if (!isValid) {
+                    alert('Please login to view past notes.');
+                    window.location.href = 'login.html';
+                    return;
+                }
+                window.location.href = 'pastNote.html';
+            };
+
+            profileBtn.onclick = () => {
+                if (!isValid) {
+                    alert('Please login to edit your profile.');
+                    window.location.href = 'login.html';
+                    return;
+                }
+                window.location.href = 'edit-profile.html';
+            };
+        });
+    </script>
+    <script type="module" src="account.js"></script>
+
+</body>
+
+</html>

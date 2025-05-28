@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #efdcc0, #4e9af0);
+    margin: 20px;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input,
+textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #000000;
+    border-radius: 0;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    border-bottom-color: #b830ea;
+}
+
+textarea {
+    overflow: hidden;
+    resize: none;
+    min-height: 50px;
+    max-height: 300px;
+}
+
+p {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    margin: 20px 0 0 0;
+    font-size: small;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #0052b1;
+    margin: 20px 0;
+    width: 50%;
+}
+
+button {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    width: 50%;
+    padding: 10px;
+    background-color: #73b9d3;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: white;
+    background-color: #2173a6;
+}
+
+.output {
+    margin-top: 20px;
+}
+
+.backBtn {
+    margin-top: 20px;
+    background-color: #e29797;
+}
+
+.backBtn:hover {
+    background-color: #c93232;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #cdcccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #dfdfdf;
+    font-weight: bold;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+    width: 20%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 30%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+    width: 40%;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+    width: 10%;
+}
+
+tr:hover {
+    background-color: #c1effa;
+}
+
+.edit-button {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    width: 100%;
+    padding: 10px;
+    background-color: #73b9d3;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    color: white;
+    background-color: #2173a6;
+}
+
+.delete-button {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #d37373;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    color: white;
+    background-color: #a62121;
+}
