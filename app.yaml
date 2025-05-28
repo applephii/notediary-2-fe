@@ -56,4 +56,8 @@ handlers:
   - url: /account.js
     static_files: account.js
     upload: account.js
+
+  - url: /favicon.ico
+    static_files: favicon.ico
+    upload: favicon.ico
   
