@@ -66,6 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     username,
                     email,
                     password
+                }, {
+                    withCredentials: false
                 });
 
                 alert('Registration successful! You can now log in.');
@@ -123,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     }
 
-    if( deleteProfileButton) {
+    if (deleteProfileButton) {
         deleteProfileButton.addEventListener('click', async function (e) {
             e.preventDefault();
             const userId = sessionStorage.getItem('userId');
