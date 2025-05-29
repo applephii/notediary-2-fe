@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const password = document.getElementById('inputPassword').value;
 
             try {
-                await axios.post(`${BASE_URL}/register`, {
+                await axiosJWT.post(`${BASE_URL}/register`, {
                     username,
                     email,
                     password
